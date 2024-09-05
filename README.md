@@ -1,3 +1,9 @@
+# BE-gr-lora 
+
+Fork of BastilleResearch's gr-lora repo, for moden use. 
+Original repo hasn't been updated in several years and is very difficult to use on modern systems. 
+Updating it to modern standard and to use gnuradio 3.10
+
 # gr-lora
 
 This is an open-source implementation of the LoRa CSS PHY, based on the blind signal analysis conducted by @matt-knight.  The original research that guided this implementation may be found at https://github.com/matt-knight/research
