@@ -1,0 +1,27 @@
+id: lora_mod
+label: LoRa Modulator
+category: '[Core]/LoRa'
+templates: 
+  imports:
+    import lora
+  make: lora.mod(spreading_factor, sync_word)
+
+parameters:
+  - id: spreading_factor
+    label: Spreading Factor
+    dtype: int
+    default: 8
+  - id: sync_word
+    label: Sync Word
+    dtype: int
+    default: 0x12
+
+inputs:
+  - id: in
+    dtype: message
+
+outputs:
+  - id: out
+    dtype: complex
+
+file_format: 1

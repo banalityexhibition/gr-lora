@@ -46,8 +46,8 @@ endif()
 
 # Install the built library files
 install(TARGETS gnuradio-lora
-    LIBRARY DESTINATION lib${CMAKE_INSTALL_LIBDIR}
-    ARCHIVE DESTINATION lib${CMAKE_INSTALL_LIBDIR}
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
     RUNTIME DESTINATION bin
 )
 

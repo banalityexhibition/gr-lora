@@ -17,9 +17,9 @@
 # the Free Software Foundation, Inc., 51 Franklin Street,
 # Boston, MA 02110-1301, USA.
 
+
 install(FILES
-    lora_demod.xml
-    lora_decode.xml
-    lora_mod.xml
-    lora_encode.xml DESTINATION share/gnuradio/grc/blocks
-)
+    lora_demod.block.yml
+    lora_decode.block.yml
+    lora_mod.block.yml
+    lora_encode.block.yml DESTINATION  $ENV{CONDA_PREFIX}/share/gnuradio/grc/blocks)

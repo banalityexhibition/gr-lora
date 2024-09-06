@@ -19,6 +19,8 @@ endif()
 
 # Set the prefix path for finding GNU Radio (conda use assumed for now)
 set(CMAKE_PREFIX_PATH $ENV{CONDA_PREFIX}/lib/cmake/gnuradio)
+set(CMAKE_INSTALL_PREFIX $ENV{CONDA_PREFIX})
+message(STATUS "CONDA PREFIX: ${CMAKE_INSTALL_PREFIX}")
 
 
 find_package(Gnuradio 3.10 REQUIRED COMPONENTS  runtime  analog blocks digital filter fft)
@@ -38,9 +40,23 @@ endif()
 find_package(Boost 1.65 REQUIRED COMPONENTS filesystem system unit_test_framework)
 
 # Find CppUnit library (conda assumed)
-find_library(CPPUNIT_LIB cppunit HINTS ${CONDA_PREFIX}/lib)
+find_library(CPPUNIT_LIB cppunit HINTS $ENV{CONDA_PREFIX}/lib)
 
+include(GrPlatform) #define LIB_SUFFIX
+set(GR_RUNTIME_DIR      ${CMAKE_INSTALL_PREFIX}/bin)
+set(GR_LIBRARY_DIR      ${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX})
+set(GR_INCLUDE_DIR      ${CMAKE_INSTALL_PREFIX}/include/lora)
+set(GR_DATA_DIR         ${CMAKE_INSTALL_PREFIX}/share)
+set(GR_PKG_DATA_DIR     ${GR_DATA_DIR}/${CMAKE_PROJECT_NAME})
+set(GR_DOC_DIR          ${GR_DATA_DIR}/doc)
+set(GR_PKG_DOC_DIR      ${GR_DOC_DIR}/${CMAKE_PROJECT_NAME})
+set(GR_CONF_DIR         ${CMAKE_INSTALL_PREFIX}/etc)
+set(GR_PKG_CONF_DIR     ${GR_CONF_DIR}/${CMAKE_PROJECT_NAME}/conf.d)
+set(GR_LIBEXEC_DIR      ${CMAKE_INSTALL_PREFIX}/libexec)
+set(GR_PKG_LIBEXEC_DIR  ${GR_LIBEXEC_DIR}/${CMAKE_PROJECT_NAME})
+set(GRC_BLOCKS_DIR      ${GR_PKG_DATA_DIR}/grc/blocks)
 
+message(STATUS "blocks dir:  ${GR_PKG_DATA_DIR}")
 
 add_subdirectory(lib)  
 
@@ -57,7 +73,7 @@ target_link_libraries(test-lora
     ${CPPUNIT_LIB}
 )
 
-install(FILES cmake/Modules/loraConfig.cmake DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/lora)
+install(FILES cmake/Modules/loraConfig.cmake DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/cmake/lora)
 
 # Uninstall target
 configure_file(

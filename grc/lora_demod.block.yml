@@ -1,0 +1,35 @@
+id: lora_demod
+label: LoRa Demodulator
+category: '[Core]/LoRa'
+templates: 
+  imports:
+    import lora
+  make: lora.demod(spreading_factor, low_data_rate, beta, fft_factor)
+
+parameters:
+  - id: spreading_factor
+    label: Spreading Factor
+    dtype: int
+    default: 8
+  - id: low_data_rate
+    label: Low Data Rate
+    dtype: bool
+    default: False
+  - id: beta
+    label: FFT Window Beta
+    dtype: float
+    default: 25.0
+  - id: fft_factor
+    label: FFT Size Factor
+    dtype: int
+    default: 2
+
+inputs:
+  - id: in
+    dtype: complex
+
+outputs:
+  - id: out
+    dtype: message
+
+file_format: 1
