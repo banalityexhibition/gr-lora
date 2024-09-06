@@ -21,7 +21,7 @@ endif()
 set(CMAKE_PREFIX_PATH $ENV{CONDA_PREFIX}/lib/cmake/gnuradio)
 
 
-find_package(Gnuradio 3.10 REQUIRED COMPONENTS runtime analog blocks digital filter fft)
+find_package(Gnuradio 3.10 REQUIRED COMPONENTS  runtime  analog blocks digital filter fft)
 
 if(Gnuradio_VERSION VERSION_LESS "3.8")
     find_package(Volk)
@@ -35,7 +35,7 @@ if (Gnuradio_FOUND)
 endif()
 
 
-find_package(Boost 1.65 REQUIRED COMPONENTS filesystem system)
+find_package(Boost 1.65 REQUIRED COMPONENTS filesystem system unit_test_framework)
 
 # Find CppUnit library (conda assumed)
 find_library(CPPUNIT_LIB cppunit HINTS ${CONDA_PREFIX}/lib)

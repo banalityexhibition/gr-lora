@@ -78,7 +78,8 @@ namespace gr {
 
       d_num_symbols = (1 << d_sf);
       d_fft_size = d_fft_size_factor*d_num_symbols;
-      d_fft = new fft::fft_complex(d_fft_size, true, 1);
+      // Forward explicity declared
+      d_fft = new fft::fft_complex_fwd(static_cast<unsigned int>(d_fft_size), 1);
       d_overlaps = OVERLAP_DEFAULT;
       d_offset = 0;
 

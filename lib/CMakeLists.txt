@@ -70,6 +70,7 @@ target_include_directories(test-lora PRIVATE
 
 target_link_libraries(test-lora
     gnuradio-lora
+    Boost::unit_test_framework
     ${CPPUNIT_LIBRARIES}
 )
 
