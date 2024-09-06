@@ -1,0 +1,14 @@
+name: be-gr-lora
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.9
+  - gnuradio
+  - boost
+  - cmake
+  - fftw
+  - gsl
+  - log4cpp
+  - zeromq
+  - cppunit

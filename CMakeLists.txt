@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 #causes python errors
 #cmake_policy(SET CMP0148 NEW)
-cmake_policy(SET CMP0167 NEW)
+#cmake_policy(SET CMP0167 NEW)
 
 # Enable testing
 enable_testing()
