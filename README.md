@@ -1,8 +1,6 @@
 # BE-gr-lora 
 
-Fork of BastilleResearch's gr-lora repo, for moden use. 
-Original repo hasn't been updated in several years and is very difficult to use on modern systems. 
-Updating it to modern standard and to use gnuradio 3.10
+Fork of BastilleResearch's gr-lora repo, updated for modern use with gnuradio 3.10. 
 
 # gr-lora
 
